@@ -13,6 +13,7 @@ def read_file(name):
 Разбиение на слова
 """
 
+
 def read_word(list_lines):
     word = ""
     list_of_word = []
@@ -33,6 +34,7 @@ def read_word(list_lines):
 """
 перевод в цифры
 """
+
 
 def convert_to_numbers(string):
     list_of_num = []
@@ -103,6 +105,7 @@ def test_dict(num):
 """
 счетчик ходов
 """
+
 
 def count_of_move(list_of_numbers):
     counter = 0
