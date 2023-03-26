@@ -22,7 +22,9 @@ def read_word(list_lines):
         list_of_word.append(word)
         word = ""
     return list_of_word
-
+'''
+Перевод в цифры
+'''
 #перевод в цифры
 def convert_to_numbers(string):
     list_of_num = []
