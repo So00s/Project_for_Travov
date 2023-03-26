@@ -1,7 +1,6 @@
 '''
 функция которая считывает строки из файла
 '''
-
 def read_file(name):
     with open(f"{name}", 'r', encoding = "UTF-8") as f:
         list_line = f.readlines()
