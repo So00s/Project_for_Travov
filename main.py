@@ -92,23 +92,12 @@ R"}
     return list_of_num
 
 
-def test_dict(num):
-    test = {"lfi1": {1: 3, 2: 25}, "lfi2": {1: 1, 3: 2}}
-    for i, j in test.items():
-        print(i, " ", j)
-        for key, value in j.items():
-            if num == value:
-                print(i, key)
-    return 0
-
-
 """
 счетчик ходов
 """
 
 
 def count_of_move(list_of_numbers):
-    counter = 0
     dict_of_row = {"tr": {"lfi5": {0: 41, 1: 2, 2: 3}, "lfi4": {3: 4}, "lfi3": {4: 5}, "lfi2": {5: 6, 6: 7}, "rfi\
 2": {7: 8, 8: 9}, "rfi3": {9: 10}, "rfi4": {10: 11}, "rfi5": {11: 12, 12: 13, 13: 14}}, "mr": {"lfi\
 5": {0: 15, 1: 16}, "lfi4": {2: 17}, "lfi3": {3: 18}, "lfi2": {4: 19, 5: 20}, "rfi2": {6: 21, 7: 22}, "r\
@@ -158,17 +147,21 @@ i5": {"row": 2, "col": 10}}
     return count_moves
 
 
-if __name__ == '__main__':
+def main():
     name = "test.txt"
     list_of_lines = read_file(name)
-    #print(list_of_lines)
+    # print(list_of_lines)
     list_of_word = read_word(list_of_lines)
-    #print(list_of_word)
+    # print(list_of_word)
     counter = {"lfi5": 0, "lfi4": 0, "lfi3": 0, "lfi2": 0, "rfi2": 0, "rfi3": 0, "rfi4": 0, "rfi5": 0}
     for _ in list_of_word:
         list_of_num = (convert_to_numbers(_))
-        #print(list_of_num)
-        #print(count_of_move(list_of_num))
+        # print(list_of_num)
+        # print(count_of_move(list_of_num))
         for key, value in count_of_move(list_of_num).items():
             counter[key] += value
     print(counter)
+
+
+if __name__ == '__main__':
+    main()
