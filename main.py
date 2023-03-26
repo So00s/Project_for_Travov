@@ -3,7 +3,10 @@
 """
 
 
-
+def read_file(name):
+    with open(f"{name}", 'r', encoding = "UTF-8") as f:
+        list_line = f.readlines()
+    return list_line
 
 
 """
@@ -11,7 +14,21 @@
 """
 
 
-
+def read_word(list_lines):
+    word = ""
+    list_of_word = []
+    for row in list_lines:
+        row = row.rstrip()
+        for _ in row:
+            if _ != " ":
+                word += _
+            else:
+                list_of_word.append(word)
+                word = ""
+        list_of_word.append(word)
+        word = ""
+        list_of_word.append("E")
+    return list_of_word
 
 
 """
