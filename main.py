@@ -115,29 +115,28 @@ i5": {"row": 2, "col": 10}}
             for k1, v1 in v.items():
                 for k2, v2 in v1.items():
                     if _ == v2:
-                        out = [k, k1, k2]
-                        if out[0] == "tr":
+                        if k == "tr":
                             for key, value in prev_position.items():
                                 if k1 == key:
                                     count_moves[k1] += abs(value["row"] - 0)
                                     value["row"] = 0
                                     count_moves[k1] += abs(value["col"] - k2)
                                     value["col"] = k2
-                        elif out[0] == "mr":
+                        elif k == "mr":
                             for key, value in prev_position.items():
                                 if k1 == key:
                                     count_moves[k1] += abs(value["row"] - 1)
                                     value["row"] = 1
                                     count_moves[k1] += abs(value["col"] - k2)
                                     value["col"] = k2
-                        elif out[0] == "hr":
+                        elif k == "hr":
                             for key, value in prev_position.items():
                                 if k1 == key:
                                     count_moves[k1] += abs(value["row"] - 2)
                                     value["row"] = 2
                                     count_moves[k1] += abs(value["col"] - k2)
                                     value["col"] = k2
-                        elif out[0] == "dr":
+                        elif k == "dr":
                             for key, value in prev_position.items():
                                 if k1 == key:
                                     count_moves[k1] += abs(value["row"] - 3)
