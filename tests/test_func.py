@@ -22,3 +22,4 @@ def test_count_of_move(a, expected_result):
 о'], ['РаскИнуты', 'рУки,', 'горЯт', 'глазАE', 'Мы', 'стАли', 'оскОлками', 'наАшего', 'прОшлогоE'])])
 def test_read_word(a, expected_result):
     assert read_word(a) == expected_result
+    
