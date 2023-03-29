@@ -98,6 +98,59 @@ R"}
     return list_of_num
 
 
+def convert_vyzov_to_numbers(string):
+    list_of_num = []
+    lfi5 = {41: "ю", 2: "%", 15: "tab", 16: "в", 30: "ч", 58: "Caps", 42: "L", 44: "ш"}
+    lfi4 = {3: "7", 17: "ы", 31: "и", 45: "х"}
+    lfi3 = {4: "5", 18: "о", 32: "е", 46: "й"}
+    lfi2 = {5: "3", 6: "1", 19: "у", 20: "ь", 33: "а", 34: ",", 47: "к", 48: "_"}
+    rfi5 = {11: "6", 12: "8", 13: "щ", 14: "bs", 25: "г", 26: "ж", 27: "ц", 43: "ъ", 39: "б", 40: "з", 28: "E",\
+            53: "п", 54: "R"}
+    rfi4 = {10: "4", 24: "я", 38: "с", 52: "ф"}
+    rfi3 = {9: "2", 23: "д", 37: "т", 51: "м"}
+    rfi2 = {7: "9", 8: "0", 21: "ё", 22: "л", 35: ".", 36: "н", 49: "/", 50: "р"}
+    fi1 = {57: " "}
+    left_upper = ["В", "Ы", "О", "У", "А", "Е", "И", "Ч", "Ш", "Х", "Й", "К"]
+    for _ in string:
+        if _.isupper():
+            if _ in left_upper:
+                list_of_num.append(54)
+            elif _ == "E":
+                list_of_num.append(28)
+            else:
+                list_of_num.append(42)
+        _ = _.lower()
+        for key, value in lfi5.items():
+            if _ == value:
+                list_of_num.append(key)
+        for key, value in lfi4.items():
+            if _ == value:
+                list_of_num.append(key)
+        for key, value in lfi3.items():
+            if _ == value:
+                list_of_num.append(key)
+        for key, value in lfi2.items():
+            if _ == value:
+                list_of_num.append(key)
+        for key, value in rfi5.items():
+            if _ == value:
+                list_of_num.append(key)
+        for key, value in rfi4.items():
+            if _ == value:
+                list_of_num.append(key)
+        for key, value in rfi3.items():
+            if _ == value:
+                list_of_num.append(key)
+        for key, value in rfi2.items():
+            if _ == value:
+                list_of_num.append(key)
+        for key, value in fi1.items():
+            if _ == value:
+                list_of_num.append(key)
+
+    return list_of_num
+
+
 """
 Счетчик ходов каждого пальца для каждого слова
 На вход: список чисел
