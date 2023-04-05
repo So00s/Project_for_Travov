@@ -89,8 +89,7 @@ R"}
 def convert_vyzov_to_numbers(string):
     """
 
-    :param string:
-    :return:
+    Функция...
     """
     list_of_num = []
     lfi5 = {41: "ю", 2: "%", 15: "tab", 16: "в", 30: "ч", 58: "Caps", 42: "L", 44: "ш"}
