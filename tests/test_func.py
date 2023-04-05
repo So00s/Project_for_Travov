@@ -21,8 +21,7 @@ def test_count_of_move(a, expected_result):
     assert count_of_move(a) == expected_result
 
 
-@pytest.mark.parametrize("a, expected_result", [(['РаскИнуты рУки, горЯт глазА\n', 'Мы стАли оскОлками наАшего прОшлог\
-о'], ['РаскИнуты', 'рУки,', 'горЯт', 'глазАE', 'Мы', 'стАли', 'оскОлками', 'наАшего', 'прОшлогоE'])])
+@pytest.mark.parametrize("a, expected_result", [('РаскИнуты рУки, горЯт глазА\n', ['РаскИнуты', 'рУки,', 'го\
+рЯт', 'глазАE'])])
 def test_read_word(a, expected_result):
     assert read_word(a) == expected_result
-    

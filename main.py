@@ -32,6 +32,14 @@ def main():
                     counter_vyzov[key] += value
         print(counter)
         print(counter_vyzov)
+        sum_of_qwerty = 0
+        sum_of_vyzov = 0
+        for key, value in counter.items():
+            sum_of_qwerty += value
+        for key, value in counter_vyzov.items():
+            sum_of_vyzov += value
+        print(f"Сумма в йцукен:{sum_of_qwerty}\nСумма в vyzov:{sum_of_vyzov}\nРазница в эффективно\
+сти:{round(sum_of_qwerty / sum_of_vyzov, 2)}")
 
 
 if __name__ == '__main__':
