@@ -1,42 +1,38 @@
 """
-Файл, в котором содержатся все функции
-"""
-
-
-"""
 Функция, которая считывает строки из файла
-На вход: строка с названием файла
-На выход: строка
 """
 
 
+def read_file(name):
+    with open(f"{name}", 'r', encoding="UTF-8") as f:
+        list_line = f.readlines()
+    return list_line
+
 
 """
-Функция, которая разбивает предложения на слова
-На вход: строка
-На выход: список слов в этой строке
+Разбиение на слова
 """
 
 
-def read_word(line):
+def read_word(list_lines):
     word = ""
     list_of_word = []
-    row = line
-    for _ in row:
-        if _ != " ":
-            word += _
-        else:
-            list_of_word.append(word)
-            word = ""
-    word += "E"
-    list_of_word.append(word)
+    for row in list_lines:
+        row = row.rstrip()
+        for _ in row:
+            if _ != " ":
+                word += _
+            else:
+                list_of_word.append(word)
+                word = ""
+        word += "E"
+        list_of_word.append(word)
+        word = ""
     return list_of_word
 
 
 """
-Функция для перевода строки в цифровой массив
-На вход: слово в строковом формате
-На выход: список чисел из которых состоит это слово
+перевод в цифры
 """
 
 
@@ -96,68 +92,13 @@ R"}
     return list_of_num
 
 
-def convert_vyzov_to_numbers(string):
-    list_of_num = []
-    lfi5 = {41: "ю", 2: "%", 15: "tab", 16: "в", 30: "ч", 58: "Caps", 42: "L", 44: "ш"}
-    lfi4 = {3: "7", 17: "ы", 31: "и", 45: "х"}
-    lfi3 = {4: "5", 18: "о", 32: "е", 46: "й"}
-    lfi2 = {5: "3", 6: "1", 19: "у", 20: "ь", 33: "а", 34: ",", 47: "к", 48: "_"}
-    rfi5 = {11: "6", 12: "8", 13: "щ", 14: "bs", 25: "г", 26: "ж", 27: "ц", 43: "ъ", 39: "б", 40: "з", 28: "\
-            E", 53: "п", 54: "R"}
-    rfi4 = {10: "4", 24: "я", 38: "с", 52: "ф"}
-    rfi3 = {9: "2", 23: "д", 37: "т", 51: "м"}
-    rfi2 = {7: "9", 8: "0", 21: "ё", 22: "л", 35: ".", 36: "н", 49: "/", 50: "р"}
-    fi1 = {57: " "}
-    left_upper = ["В", "Ы", "О", "У", "А", "Е", "И", "Ч", "Ш", "Х", "Й", "К"]
-    for _ in string:
-        if _.isupper():
-            if _ in left_upper:
-                list_of_num.append(54)
-            elif _ == "E":
-                list_of_num.append(28)
-            else:
-                list_of_num.append(42)
-        _ = _.lower()
-        for key, value in lfi5.items():
-            if _ == value:
-                list_of_num.append(key)
-        for key, value in lfi4.items():
-            if _ == value:
-                list_of_num.append(key)
-        for key, value in lfi3.items():
-            if _ == value:
-                list_of_num.append(key)
-        for key, value in lfi2.items():
-            if _ == value:
-                list_of_num.append(key)
-        for key, value in rfi5.items():
-            if _ == value:
-                list_of_num.append(key)
-        for key, value in rfi4.items():
-            if _ == value:
-                list_of_num.append(key)
-        for key, value in rfi3.items():
-            if _ == value:
-                list_of_num.append(key)
-        for key, value in rfi2.items():
-            if _ == value:
-                list_of_num.append(key)
-        for key, value in fi1.items():
-            if _ == value:
-                list_of_num.append(key)
-
-    return list_of_num
-
-
 """
-Счетчик ходов каждого пальца для каждого слова
-На вход: список чисел
-На выход: словарь, где ключ - это палец, 
-а значение - количество ходов этого пальца
+счетчик ходов
 """
 
 
 def count_of_move(list_of_numbers):
+    counter = 0
     dict_of_row = {"tr": {"lfi5": {0: 41, 1: 2, 2: 3}, "lfi4": {3: 4}, "lfi3": {4: 5}, "lfi2": {5: 6, 6: 7}, "rfi\
 2": {7: 8, 8: 9}, "rfi3": {9: 10}, "rfi4": {10: 11}, "rfi5": {11: 12, 12: 13, 13: 14}}, "mr": {"lfi\
 5": {0: 15, 1: 16}, "lfi4": {2: 17}, "lfi3": {3: 18}, "lfi2": {4: 19, 5: 20}, "rfi2": {6: 21, 7: 22}, "r\
@@ -175,28 +116,29 @@ i5": {"row": 2, "col": 10}}
             for k1, v1 in v.items():
                 for k2, v2 in v1.items():
                     if _ == v2:
-                        if k == "tr":
+                        out = [k, k1, k2]
+                        if out[0] == "tr":
                             for key, value in prev_position.items():
                                 if k1 == key:
                                     count_moves[k1] += abs(value["row"] - 0)
                                     value["row"] = 0
                                     count_moves[k1] += abs(value["col"] - k2)
                                     value["col"] = k2
-                        elif k == "mr":
+                        elif out[0] == "mr":
                             for key, value in prev_position.items():
                                 if k1 == key:
                                     count_moves[k1] += abs(value["row"] - 1)
                                     value["row"] = 1
                                     count_moves[k1] += abs(value["col"] - k2)
                                     value["col"] = k2
-                        elif k == "hr":
+                        elif out[0] == "hr":
                             for key, value in prev_position.items():
                                 if k1 == key:
                                     count_moves[k1] += abs(value["row"] - 2)
                                     value["row"] = 2
                                     count_moves[k1] += abs(value["col"] - k2)
                                     value["col"] = k2
-                        elif k == "dr":
+                        elif out[0] == "dr":
                             for key, value in prev_position.items():
                                 if k1 == key:
                                     count_moves[k1] += abs(value["row"] - 3)
@@ -204,3 +146,23 @@ i5": {"row": 2, "col": 10}}
                                     count_moves[k1] += abs(value["col"] - k2)
                                     value["col"] = k2
     return count_moves
+
+
+def main():
+    name = "test.txt"
+    list_of_lines = read_file(name)
+    # print(list_of_lines)
+    list_of_word = read_word(list_of_lines)
+    # print(list_of_word)
+    counter = {"lfi5": 0, "lfi4": 0, "lfi3": 0, "lfi2": 0, "rfi2": 0, "rfi3": 0, "rfi4": 0, "rfi5": 0}
+    for _ in list_of_word:
+        list_of_num = (convert_to_numbers(_))
+        # print(list_of_num)
+        # print(count_of_move(list_of_num))
+        for key, value in count_of_move(list_of_num).items():
+            counter[key] += value
+    print(counter)
+
+
+if __name__ == '__main__':
+    main()

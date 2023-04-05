@@ -1,3 +1,6 @@
+"""
+Файл в котором тестируются все функции
+"""
 from utils import *
 import pytest
 
