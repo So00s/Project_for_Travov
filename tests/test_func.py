@@ -9,10 +9,6 @@ import pytest
                                                 ("а", [33]),
                                                 ("паф", [34, 33, 30])])
 def test_convert_to_numbers(a, expected_result):
-    """
-
-    Тест функции convert_to_numbers
-    """
     temp = a
     assert convert_to_numbers(temp) == expected_result
 
