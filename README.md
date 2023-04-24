@@ -35,7 +35,7 @@ ____
 
 | keyboard-vyzov                   | ЙЦУКЕН |
 |-----------------------|--------|
-| lfi1 - 0000	rfi1 - 0000<br/>lfi2 - 2497 rfi2 - 2047 <br/>lfi3 - 2076	rfi3 - 1297<br/>lfi4 - 632	rfi4 - 334<br/>lfi5 - 2315	rfi5 - 4497| lfi1 - 0000	rfi1 - 0000<br/>lfi2 - 6514, rfi2 - 6281<br/>lfi3 - 2076	rfi3 - 1297<br/>lfi4 - 632	rfi4 - 334<br/>lfi5 - 2315	rfi5 - 4497|
+| lfi1 - 0000	rfi1 - 0000<br/>lfi2 - 2497 rfi2 - 2047 <br/>lfi3 - 2076	rfi3 - 1297<br/>lfi4 - 632	rfi4 - 334<br/>lfi5 - 2315	rfi5 - 4497| lfi1 - 0000	rfi1 - 0000<br/>lfi2 - 6514, rfi2 - 6281<br/>lfi3 - 1489	rfi3 - 544<br/>lfi4 - 325	rfi4 - 139<br/>lfi5 - 2330	rfi5 - 4555|
 |15695|22177|
 
  У раскладки keyboard-vyzov нагрузка ~ в 1.41 раз меньше:chart_with_upwards_trend:
